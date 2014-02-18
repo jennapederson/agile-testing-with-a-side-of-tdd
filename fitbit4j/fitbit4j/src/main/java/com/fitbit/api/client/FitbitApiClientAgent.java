@@ -677,11 +677,16 @@ public class FitbitApiClientAgent extends FitbitAPIClientSupport implements Seri
         Response res = httpGet(url, true);
         throwExceptionIfError(res);
         try {
-            return ActivityCategory.jsonArrayToActivityCategoryList(res.asJSONObject().getJSONArray("categories"));
+            return convertToActivityCategories(res);
         } catch (JSONException e) {
             throw new FitbitAPIException("Error retrieving activity: " + e, e);
         }
     }
+
+	private List<ActivityCategory> convertToActivityCategories(Response res)
+			throws JSONException, FitbitAPIException {
+		return ActivityCategory.jsonArrayToActivityCategoryList(res.asJSONObject().getJSONArray("categories"));
+	}
 
     /**
      * Get the details of a specific activity in Fitbit activities database. If activity has levels, also get list of activity level details.
