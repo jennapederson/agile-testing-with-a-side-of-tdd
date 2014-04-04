@@ -50,7 +50,7 @@ public class FitbitApiClientAgent extends FitbitAPIClientSupport implements Seri
     private String apiBaseUrl = DEFAULT_API_BASE_URL;
     private APIVersion apiVersion = APIVersion.BETA_1;
 
-    private FitbitApiCredentialsCache credentialsCache;
+    private FitbitApiCredentialsCache credentialsCache = DEFAULT_CREDENTIALS_CACHE;
 
     /**
      * Returns the base API URL
