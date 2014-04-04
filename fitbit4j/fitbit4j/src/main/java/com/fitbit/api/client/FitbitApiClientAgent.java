@@ -52,52 +52,6 @@ public class FitbitApiClientAgent extends FitbitAPIClientSupport implements Seri
 
     private FitbitApiCredentialsCache credentialsCache;
 
-
-    /**
-     * Default constructor. Creates FitbitApiClientAgent with default API hosts and credentials cache.
-     */
-    public FitbitApiClientAgent() {
-        this(DEFAULT_API_BASE_URL, DEFAULT_WEB_BASE_URL, (FitbitApiCredentialsCache) null);
-    }
-
-    /**
-     * Creates FitbitApiClientAgent with custom API hosts and credentials cache.
-     *
-     * @param apiBaseUrl e.g. api.fitbit.com
-     * @param webBaseUrl e.g. http://www.fitbit.com
-     * @param credentialsCache Credentials cache
-     *
-     * @see <a href="http://wiki.fitbit.com/display/API/API-Client-Reference-App">Fitbit API: API-Client-Reference-App</a>
-     */
-    public FitbitApiClientAgent(String apiBaseUrl, String webBaseUrl, FitbitApiCredentialsCache credentialsCache) {
-        this("https://" + apiBaseUrl + "/oauth/request_token", webBaseUrl + "/oauth/authorize", "https://" + apiBaseUrl + "/oauth/access_token");
-        this.apiBaseUrl = apiBaseUrl;
-        if (null == credentialsCache) {
-            this.credentialsCache = DEFAULT_CREDENTIALS_CACHE;
-        } else {
-            this.credentialsCache = credentialsCache;
-        }
-    }
-
-    /**
-     * @param requestTokenURL e.g. https://api.fitbit.com/oauth/request_token
-     * @param authorizationURL e.g. http://www.fitbit.com/oauth/authorize
-     * @param accessTokenURL https://api.fitbit.com/oauth/access_token
-     *
-     * @see <a href="http://wiki.fitbit.com/display/API/API-Client-Reference-App">Fitbit API: API-Client-Reference-App</a>
-     */
-    public FitbitApiClientAgent(String requestTokenURL, String authorizationURL, String accessTokenURL) {
-        super();
-        init(requestTokenURL, authorizationURL, accessTokenURL);
-    }
-
-    private void init(String requestTokenURL, String authorizationURL, String accessTokenURL) {
-        format.setTimeZone(TimeZone.getTimeZone("GMT"));
-        http.setRequestTokenURL(requestTokenURL);
-        http.setAuthorizationURL(authorizationURL);
-        http.setAccessTokenURL(accessTokenURL);
-    }
-
     /**
      * Returns the base API URL
      *
