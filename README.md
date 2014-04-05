@@ -10,6 +10,7 @@ This is the code used to teach test driven development for Agile Testing with a 
 
 * The [bowling game kata][6] from the demo
 * Additional [TDD problems][7] to use for practice 
+* PragDave's [CodeKata's][8]
 
 # Resources #
 
@@ -25,3 +26,4 @@ This is the code used to teach test driven development for Agile Testing with a 
 [5]: http://www.slideshare.net/jennapederson/agile-testing-with-a-side-of-tdd-tccc16-33168672
 [6]: http://www.objectmentor.com/resources/articles/xpepisode.htm
 [7]: https://sites.google.com/site/tddproblems/all-problems-1
+[8]: http://codekata.com/
