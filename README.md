@@ -4,10 +4,10 @@ This is the code used to teach test driven development for Agile Testing with a 
 
 # Resources #
 
-[Working Effectively with Legacy Code][1] - Michael Feathers
-[Test Driven Development by Example][2] - Kent Beck
-[Agile Testing][3] - Lisa Crispin, Janet Gregory
-[Clean Code][4] - Bob Martin
+* [Working Effectively with Legacy Code][1] - Michael Feathers
+* [Test Driven Development by Example][2] - Kent Beck
+* [Agile Testing][3] - Lisa Crispin, Janet Gregory
+* [Clean Code][4] - Bob Martin
 
 [1]: http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052
 [2]: http://www.amazon.com/Test-Driven-Development-By-Example/dp/0321146530
