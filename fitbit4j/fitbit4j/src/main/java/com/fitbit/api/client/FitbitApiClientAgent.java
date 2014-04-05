@@ -23,6 +23,7 @@ import com.fitbit.api.common.model.user.FriendStats;
 import com.fitbit.api.common.model.user.UserInfo;
 import com.fitbit.api.common.service.FitbitApiService;
 import com.fitbit.api.model.*;
+
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
@@ -32,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -51,6 +53,10 @@ public class FitbitApiClientAgent extends FitbitAPIClientSupport implements Seri
     private APIVersion apiVersion = APIVersion.BETA_1;
 
     private FitbitApiCredentialsCache credentialsCache = DEFAULT_CREDENTIALS_CACHE;
+
+	private HttpClientSupport httpClientSupport;
+
+	private ActivitySupport activitySupport;
 
     /**
      * Returns the base API URL
@@ -667,10 +673,10 @@ public class FitbitApiClientAgent extends FitbitAPIClientSupport implements Seri
         setAccessToken(localUser);
         // Example: GET /1/activities/90009.json
         String url = APIUtil.contextualizeUrl(getApiBaseUrl(), getApiVersion(), "/activities/" + activityId, APIFormat.JSON);
-        Response res = httpGet(url, true);
+        Response res = httpClientSupport.get(url, true);
         throwExceptionIfError(res);
         try {
-            return Activity.constructActivity(res.asJSONObject());
+            return activitySupport.constructActivity(res.asJSONObject());
         } catch (JSONException e) {
             throw new FitbitAPIException("Error retrieving activity: " + e, e);
         }
