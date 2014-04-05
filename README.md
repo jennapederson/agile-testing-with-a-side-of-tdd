@@ -6,6 +6,11 @@ This is the code used to teach test driven development for Agile Testing with a 
 
 [Agile Testing with a Side of TDD][5]
 
+# Code Katas #
+
+* The [bowling game kata][6] from the demo
+* Additional [TDD problems][7] to use for practice 
+
 # Resources #
 
 * [Working Effectively with Legacy Code][1] - Michael Feathers
@@ -18,3 +23,5 @@ This is the code used to teach test driven development for Agile Testing with a 
 [3]: http://www.amazon.com/Agile-Testing-Practical-Guide-Testers/dp/0321534468
 [4]: http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
 [5]: http://www.slideshare.net/jennapederson/agile-testing-with-a-side-of-tdd-tccc16-33168672
+[6]: http://www.objectmentor.com/resources/articles/xpepisode.htm
+[7]: https://sites.google.com/site/tddproblems/all-problems-1
