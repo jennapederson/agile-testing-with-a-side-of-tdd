@@ -12,7 +12,6 @@ public class GameTest {
 
 	// one roll
 	// two rolls
-	// 4 rolls
 	// spare and 2 rolls
 	// strike and 2 rolls
 	// perfect game
