@@ -1,11 +1,9 @@
 package bowlorama;
 
-import org.apache.commons.lang.NotImplementedException;
 
 
 public class Game {
 
-	private int score = 0;
 	private int[] rolls = new int[21];
 	private int roll = 0;
 	private int currentRoll = 0;
@@ -13,9 +11,12 @@ public class Game {
 	private boolean firstRoll = true;
 
 	public void roll(int pinsKnockedDown) {
-		score += pinsKnockedDown;
 		rolls[currentRoll ++] = pinsKnockedDown;
 		
+		incrementCurrentFrame();
+	}
+
+	private void incrementCurrentFrame() {
 		if (firstRoll ) {
 			currentFrame++;
 			firstRoll = false;
@@ -31,14 +32,24 @@ public class Game {
 	public int getScoreForFrame(int frame) {
 		int frameScore = 0;
 		for (int currentFrame = 0; currentFrame < frame; currentFrame++) {
-			frameScore += rolls[roll];
-			frameScore += rolls[roll+1];
-			if (rolls[roll] + rolls[roll+1] == 10) {
-				frameScore += rolls[roll+2];
+			int roll1 = rolls[roll];
+			int roll2 = rolls[roll+1];
+			int roll3 = rolls[roll+2];
+
+			frameScore += roll1;
+			frameScore += roll2;
+			
+			if (isSpare(roll1, roll2)) {
+				frameScore += roll3;
 			}
+			
 			roll += 2;
 		}
 		return frameScore;
+	}
+
+	private boolean isSpare(int roll1, int roll2) {
+		return roll1 + roll2 == 10;
 	}
 
 }
